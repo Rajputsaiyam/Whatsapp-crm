@@ -1,11 +1,24 @@
+// models/User.js
+
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    name: String,
-    email: String,
-    phone: String,
-    otp: String,
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+    },
+    phone: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    otp: {
+      type: String,
+    },
     isVerified: {
       type: Boolean,
       default: false,
@@ -19,4 +32,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+
+export default User;
