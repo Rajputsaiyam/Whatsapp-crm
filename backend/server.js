@@ -6,6 +6,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import templateRoutes from "./routes/templateRoutes.js";
 import sequenceRoutes from "./routes/sequenceRoutes.js";
+import chatRoutes from "./routes/chatRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/templates", templateRoutes);
 app.use("/api/sequences", sequenceRoutes);
+app.use("/api/chat", chatRoutes);
 
 // Start server
 const PORT = process.env.PORT || 8000;

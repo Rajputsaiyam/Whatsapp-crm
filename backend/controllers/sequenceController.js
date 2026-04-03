@@ -58,3 +58,19 @@ export const deleteSequence = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+// controllers/sequenceController.js  — add this export
+export const updateSequence = async (req, res) => {
+  try {
+    const updated = await Sequence.findByIdAndUpdate(
+      req.params.id,
+      req.body,          // frontend sends { active: true/false }
+      { new: true }      // return the updated document
+    );
+    if (!updated) return res.status(404).json({ message: "Sequence not found" });
+    res.status(200).json(updated);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
