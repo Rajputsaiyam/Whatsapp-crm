@@ -1,0 +1,298 @@
+# 📱 WhatsApp CRM Simulation (MERN + AI)
+
+## 🚀 Project Overview
+
+This project is a **WhatsApp CRM Simulation** built using the MERN stack (MongoDB, Express, React, Node.js). It simulates real-world WhatsApp Business workflows including:
+
+* User onboarding with OTP verification (mocked)
+* Template creation with dynamic variables
+* Campaign/sequence builder with scheduling logic
+* Messaging system with AI-assisted replies
+* Chat history storage
+
+⚡ **Note:** No real WhatsApp or Meta APIs are used — everything is simulated via backend logic.
+
+---
+
+## 🧠 Features
+
+### 🔹 1. WhatsApp Onboarding
+
+* User registration form (name, email, phone)
+* OTP generation & verification (mocked)
+* Simulated Meta verification (Approved / Pending / Failed)
+
+---
+
+### 🔹 2. Template Management
+
+* Create templates with:
+
+  * Header
+  * Body
+  * Footer
+  * Buttons
+* Supports dynamic variables (e.g., `{{name}}`)
+* Templates stored in MongoDB
+
+---
+
+### 🔹 3. Sequence Builder
+
+* Multi-step flow:
+
+  1. Basic Info
+  2. Select Templates
+  3. Define Delays
+  4. Add Recipients
+* Scheduling logic using `setTimeout`
+* Simulates real message campaigns
+
+---
+
+### 🔹 4. List Views
+
+* View all templates
+* View all sequences
+* Toggle active/inactive
+* Delete sequences/templates
+
+---
+
+### 🔹 5. AI Chat Assistant (Bonus 🔥)
+
+* AI suggests replies based on customer messages
+* Agent can refine responses before sending
+* Chat history stored in database
+
+---
+
+## 🏗️ Tech Stack
+
+### Frontend
+
+* React (Vite)
+* Axios
+* Tailwind CSS (or custom CSS)
+* Lucide Icons
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB + Mongoose
+* Axios (for AI API)
+
+---
+
+## 📁 Project Structure
+
+```
+whatsapp-crm/
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── server.js
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   ├── components/
+│   ├── pages/
+│   └── package.json
+```
+
+---
+
+## ⚙️ Backend Setup
+
+### 1️⃣ Navigate to backend
+
+```bash
+cd backend
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Create `.env` file
+
+```env
+PORT=8000
+MONGO_URI=mongodb://127.0.0.1:27017/whatsapp_crm
+OPENROUTER_API_KEY=your_api_key_here
+```
+
+### 4️⃣ Start server
+
+```bash
+npm run dev
+```
+
+👉 Server runs on:
+
+```
+http://localhost:8000
+```
+
+---
+
+## 🌐 Frontend Setup
+
+### 1️⃣ Navigate to frontend
+
+```bash
+cd frontend
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Configure API (IMPORTANT)
+
+📁 `src/services/api.js`
+
+```js
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:8000",
+});
+
+export default api;
+```
+
+---
+
+### 4️⃣ Run frontend
+
+```bash
+npm run dev
+```
+
+👉 Frontend runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🔗 API Endpoints
+
+### 🔹 Auth
+
+```
+POST /api/auth/register
+POST /api/auth/verify
+```
+
+### 🔹 Templates
+
+```
+POST /api/templates
+GET /api/templates
+DELETE /api/templates/:id
+```
+
+### 🔹 Sequences
+
+```
+POST /api/sequences
+GET /api/sequences
+PATCH /api/sequences/:id
+DELETE /api/sequences/:id
+```
+
+### 🔹 Chatbot
+
+```
+POST /api/chat
+GET /api/chat (history)
+```
+
+---
+
+## 🧪 Testing (Postman)
+
+### Example Request:
+
+```
+POST /api/chat
+```
+
+```json
+{
+  "message": "What is CRM?"
+}
+```
+
+---
+
+## 🎥 Demo (Loom Video)
+
+In your video, explain:
+
+* Onboarding flow (OTP + Meta simulation)
+* Template creation
+* Sequence builder
+* AI chatbot & reply assistant
+
+---
+
+## 💡 Key Concepts Implemented
+
+* MVC Architecture
+* REST API design
+* Async operations & scheduling
+* Dynamic templating (`{{name}}`)
+* AI integration (OpenRouter)
+* Chat history persistence
+
+---
+
+## ⚠️ Constraints Followed
+
+* ❌ No real WhatsApp API
+* ❌ No Meta API
+* ✅ All flows simulated via backend logic
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates:
+
+* Backend system design
+* Real-world CRM workflow simulation
+* AI integration for productivity
+* Clean modular architecture
+
+---
+
+## 👨‍💻 Author
+
+**Saiyam Rajput**
+MERN Stack Developer | AI Enthusiast
+
+---
+
+## ⭐ Final Note
+
+This project goes beyond basic requirements by integrating:
+
+* AI-assisted messaging
+* Chat history storage
+* Real-world CRM simulation
+
+🔥 Designed to showcase full-stack development + problem-solving skills.
