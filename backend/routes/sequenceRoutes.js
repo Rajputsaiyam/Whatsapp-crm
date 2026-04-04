@@ -19,9 +19,9 @@ import { createSequence, getSequences, deleteSequence, updateSequence } from "..
 
 const router = express.Router();
 
-router.post("/",        createSequence);
-router.get("/",         getSequences);
-router.patch("/:id",    updateSequence);   // ← needed for toggle
-router.delete("/:id",   deleteSequence);
+router.post("/createSequence",        createSequence);
+router.get("/getSequences",         getSequences);
+router.patch("/updateSequence/:id",    updateSequence);   // ← needed for toggle
+router.delete("/deleteSequence/:id",   deleteSequence);
 
 export default router;
